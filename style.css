@@ -1,0 +1,270 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url('tech14.JPG');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+table{
+    width: 80%;
+    margin: 40px auto;
+    background: rgb(252, 67, 1);
+}
+
+table.list{
+    text-align: center;
+    width: 100%;
+}
+
+td{
+    border: 1px solid rgb(8, 8, 8);
+    text-align: left;
+    padding: 8px 15px;
+}
+
+tr:nth-child(even), table.list thread> tr{
+    background-color: rgb(204,200,200);
+}
+
+input[type="text"],input[type="number"]{
+    width:91%;
+    padding:12px 20px;
+    margin:8px 0;
+    display: inline-block;
+    border: 1px solid rgb(165,161,161);
+    border-radius: 4px;
+}
+
+input[type="submit"],input[type="reset"]{
+    background: #eee;
+    padding:6px 12px;
+    margin:15px 0 10px;
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="submit"]:hover{
+    background: #4b99d8;
+}
+
+input[type="reset"]:hover{
+    background: #4b99d8;
+}
+
+button{
+    background: #eee;
+    padding:6px 12px;
+    margin:15px 0 10px;
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover{
+    background:#4b99d8 ;
+}
+
+/* #loggedin {
+    display: none;
+} */
+
+.login{
+    display: flex;
+}
+
+#login{
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    /* top: 50%;
+    left: 50; */
+    margin-top: 50px;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginTitle{
+    display: block;
+    font-family: sans-serif;
+    font-size: 50px;
+    color: rgb(105, 105, 105);
+}
+
+#username, #password {
+    width: 300px;
+    padding: 12p 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+}
+
+#btn_login{
+    border-radius: 0;
+    width: 300px;
+    padding: 12p 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    transition: all 300ms ease;
+}
+
+.do_not_display{
+    display: none !important;
+}
+
+.create_user_details{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.create_user_title_box h3{
+    padding: 35px;
+    font-family: sans-serif;
+    font-size: 40px;
+}
+
+.west_box input{
+    width: 300px;
+    display: block;
+}
+
+.east_box button{
+    border-radius: 8px;
+    padding: 12px 20px;
+}
+
+.regular_title{
+    font-family: sans-serif;
+    padding: 60px;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.the_products{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 12px;
+}
+
+.product_box{
+    background-color: crimson;
+    width: 350px;
+    height: 100px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.prName{
+    color: #f5f5f5;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.prQuantity{
+    color: #f5f5f5;
+    font-family: sans-serif;
+}
+
+.prPrice{
+    color: #f5f5f5;
+    font-family: sans-serif;
+}
+
+#login_create_btn{
+    color: blue;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+#login_create_btn:hover{
+    opacity: .5;
+}
+
+
+#regular_out_btn{
+    background-color: rgba(220, 20, 60, 0.904);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 50px;
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    cursor: pointer;
+}
+
+#regular_out_btn:hover{
+    opacity: .5;
+}
+
+#to_login_from_admin{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: crimson;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    cursor: pointer;
+}
+
+#to_login_from_admin:hover{
+    opacity: .3;
+}
+
+<div class="myDiv">
+  <h2>This is a heading in a div element</h2>
+  <p>This is some text in a div element.</p>
+</div>
+p{
+
+
+        background-color: pink; 
+        border:2px green;
+        display: block;
+        width:100%;
+        margin: 0;
+    padding: 0;
+    
+        
+}
+
+
+<div id="bar">
+	  <ul>
+	  <li class="Active"><a href>="home.html">Home</a></li>
+	  <li><a href>="About.html">Home</a></li>
+	  <li><a href>="Registration.html">Home</a></li>
+	  <li><a href>="conference And Events.html">Home</a></li>
+	  <li><a href>="Contact.html">Home</a></li>
+	  </ul>
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#Registration">Registration</a>
+  <a href="#Conference And Event">Conference And Event</a>
+  <a href="#contact">Contact</a> 
+</div>

@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Registration</title>
+<style>
+    h1 {text-align: center;}
+    .myDiv {
+  border: 5px outset red;
+  background-color: lightblue;    
+  text-align: center;
+}
+    </style>
+	<title>HOME page</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div style="background-color:orange;color:black;padding:20px;">
+	<marquee direction="right" behavior="scroll" scrollamount="10">
+      <h1><big><span class="teo">REGISTRATION</span></h1></marquee>
+	  
+      <link type="text/css" rel="stylesheet" href="style.css">
+      </div>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Registration</title>
+</head>
+
+<body>
+<p><a href="About.html">About</a></p>
+<p><a href="Contact.html">Contact</a></p>
+<p><a href="conference And Events.html">Conference And Events</a></p>
+<p>Links</p>
+<p><a href="Home page.html">Home page</a></p>
+<p><a href="Background.html"></a>
+  
+
+   <div class="container">
+       <div id="login" class="login">
+           <label for="" class="loginTitle">LOGIN</label>
+           <input type="text" id="username" placeholder="Email" />
+           <input type="text" id="password" placeholder="Password" />
+           <button id="btn_login">LOGIN</button>
+           <div id="login_create_btn">Create account</div>
+       </div>
+
+       <div id="create_user" class="create_user">
+           <div class="create_user_title_box">
+               <h3>CREATE NEW USER</h3>
+           </div>
+           <div class="create_user_details">
+               <div class="west_box">
+                   <input type="text" id="fName" placeholder="TITTLE" />
+                   <input type="text" id="lName" placeholder="FIRSTNAME" />
+                   <input type="text" id="email_cr" placeholder="SURNAME" />
+                   <input type="text" id="cell_cr" placeholder="Email" />
+                   <input type="text" id="cell_cr" placeholder="AffiliateOrganisation" />
+                   <input type="text" id="new_password" placeholder="NEW PASSWORD" />
+                   <input type="text" id="confirm_password" placeholder="CONFIRM PASSWORD" />
+               </div>
+               <div class="east_box">
+                   <button id="create_user_btn">CREATE USER</button>
+                   <button id="create_user_back_btn">BACK TO LOGIN</button>
+               </div>
+           </div>
+       </div>
+       <br>
+       <br>
+       <h4>Upload your proof of residence (ID/PASSPORT):</h4>
+
+       <form action="/action_page.php">
+           <input type="file" id="myFile" name="SYD611S-Test 1 Result" />
+           <input type="submit" />
+       </form>
+       <div id="regular_user" class="regular_user">
+           <div class="regular_title">
+               List of all members of the conference
+           </div>
+           <div id="regular_out_btn">X</div>
+           <div class="the_products" id="the_products">
+               <!-- <div class="product_box">
+              <div class="prName">Product: Asprin</div>
+              <div class="prQuantity">In stock: 50</div>
+              <div class="prPrice">Price per each</div>
+            </div> -->
+           </div>
+       </div>
+
+       <div id="loggedin" class="loggedin">
+           <table>
+               <tr>
+                   <td>
+                       <form autocomplete="off" onsubmit="onFormSubmit()">
+                           <div>
+                               <label for="productCode">Product Code</label>
+                               <input type="text" name="productCode" id="productCode" />
+                           </div>
+                           <div>
+                               <label for="product">Product Name</label>
+                               <input type="text" name="product" id="product" />
+                           </div>
+                           <div>
+                               <label for="qty">Qty</label>
+                               <input type="number" name="qty" id="qty" />
+                           </div>
+                           <div>
+                               <label for="perPrice">Price</label>
+                               <input type="number" name="perPrice" id="perPrice" />
+                           </div>
+
+                           <div class="form_action--button">
+                               <!-- <input type="submit" value="Submit"> -->
+                               <button id="btn_add_product">ADD PRODUCT</button>
+                               <button id="btn_update_product">UPDATE PRODUCT</button>
+                               <input type="reset" value="Reset" />
+                           </div>
+                       </form>
+
+                   </td>
+
+                   <td>
+                       <table class="list" id="storeList">
+                           <thead>
+                               <tr>
+                                   <th>Product Code</th>
+                                   <th>Product Name</th>
+                                   <th>Qty</th>
+                                   <th>Price</th>
+                               </tr>
+                           </thead>
+                           <tbody id="tBody">
+                           </tbody>
+                           <div class="deleteContainer">
+                               <input type="text" id="del_input" placeholder="Enter the code of item to delete" />
+                               <button id="del_product">DELETE PRODUCT</button>
+                               <div id="to_login_from_admin">X</div>
+                           </div>
+                       </table>
+                   </td>
+                   </td>
+               </tr>
+           </table>
+       </div>
+   </div>
+<script type="module">
+  //----------------DEFAULTS-------------//
+  var login_panel = document.getElementById("login");
+  var create_user_panel = document.getElementById("create_user");
+  var regular_user_panel = document.getElementById("regular_user");
+  var admin_panel = document.getElementById("loggedin");
+
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyANENHFAal6qJxNcTHvTc6lfZ9qCexcrU4",
+      authDomain: "azea-daafb.firebaseapp.com",
+      projectId: "azea-daafb",
+      storageBucket: "azea-daafb.appspot.com",
+      messagingSenderId: "415199051057",
+      appId: "1:415199051057:web:feb89d0fdcbd3d9c8c4410"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import {
+        getDatabase,
+        ref,
+        get,
+        set,
+        child,
+        update,
+        remove,
+      } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-database.js";
+
+      const db = getDatabase();
+
+      //-------------Getting input fields--------------//
+      var productCode = document.getElementById("productCode");
+      var product = document.getElementById("product");
+      var qty = document.getElementById("qty");
+      var perPrice = document.getElementById("perPrice");
+
+      //-------------Getting panel references---------///
+
+      var container = document.getElementById("tBody");
+
+
+      function AddProduct() {
+        set(ref(db, "Products/" + productCode.value), {
+          Product: product.value,
+          Code: productCode.value,
+          Quantity: qty.value,
+          Price: perPrice.value,
+        })
+          .then(() => {
+            alert("Product added successfully");
+            window.location.reload(false);
+          })
+          .catch((error) => {
+            alert("Something went wrong, error: " + error);
+          });
+      }
+
+      var btn_add_product = document.getElementById("btn_add_product").addEventListener("click", (e) => {
+          e.preventDefault();
+          AddProduct();
+      });
+
+      var reg_container = document.getElementById("the_products");
+
+      function ShowData() {
+        const dbref = ref(db);
+
+        get(child(dbref, "Products" + productCode.value)).then((snapshot) => {
+          if (snapshot.exists()) {
+            //console.log(snapshot.val());
+            let myData = snapshot.val();
+            for (const key in myData) {
+              //console.log(`${key}: ${myData[key]}`);
+              container.innerHTML += `
+                
+                <tr>
+                    <td> ${myData[key].Code} </td>
+                    <td> ${myData[key].Product} </td>
+                    <td> ${myData[key].Quantity} </td>
+                    <td> ${myData[key].Price} </td>
+                </tr>
+              `;
+              reg_container.innerHTML += `
+              <div class="product_box">
+              <div class="prName">Product: ${myData[key].Product}</div>
+              <div class="prQuantity">In stock: ${myData[key].Quantity}</div>
+              <div class="prPrice">Price per each: ${myData[key].Price}</div>
+          </div>
+              `;
+            }
+          }
+        });
+      }
+
+      var to_delete = document.getElementById("del_input");
+      var del_btn = document.getElementById("del_product");
+
+      function DeleteProduct() {
+        remove(ref(db, "Products/" + to_delete.value))
+          .then(() => {
+            alert("Product deleted successfully");
+            window.location.reload(false);
+          })
+          .catch((error) => {
+            alert("Something went wrong, error: " + error);
+          });
+      }
+
+      del_btn.addEventListener("click", () => {
+          DeleteProduct()
+      })
+
+      function UpdateProduct() {
+        update(ref(db, "Products/" + productCode.value), {
+          Product: product.value,
+          Code: productCode.value,
+          Quantity: qty.value,
+          Price: perPrice.value,
+        })
+          .then(() => {
+            alert("Product updated successfully");
+            window.location.reload(false);
+          })
+          .catch((error) => {
+            alert("Something went wrong, error: " + error);
+          });
+      }
+
+      var btn_update_product = document.getElementById("btn_update_product");
+
+      btn_update_product.addEventListener("click", () => {
+        UpdateProduct()
+      })
+
+      // var btn_login = document.getElementById("btn_login").addEventListener("click", () => {
+      //   sessionStorage.setItem("current", "regularIN");
+      //   window.location.reload(false);
+      // })
+
+      var exit_reg = document.getElementById("regular_out_btn").addEventListener("click", () => {
+        sessionStorage.setItem("current", "logIN");
+        window.location.reload(false);
+      })
+
+      var exit_create = document.getElementById("create_user_back_btn").addEventListener("click", () => {
+        sessionStorage.setItem("current", "logIN");
+        window.location.reload(false);
+      })
+
+      var go_to_create = document.getElementById("login_create_btn").addEventListener("click", () => {
+        sessionStorage.setItem("current", "createUSER");
+        window.location.reload(false);
+      })
+
+      //-------------CREATE USER REFERENCES-------------//
+      var crFname = document.getElementById("fName");
+      var crLname = document.getElementById("lName");
+      var crEmail = document.getElementById("email_cr");
+      var crCell = document.getElementById("AffiliateOrganisation_cr");
+      var crNpassword = document.getElementById("new_password");
+      var crCpassword = document.getElementById("confirm_password");
+
+      function AddUser() {
+        set(ref(db, "Users/" + crEmail.value), {
+          Firstname: crFname.value,
+          Lastname: crLname.value,
+          Email: crEmail.value,
+          Cell: crAffiliateOrganisation.value,
+          Password: crNpassword.value,
+          Type: "regular",
+        })
+          .then(() => {
+            alert("User added successfully");
+            window.location.reload(false);
+          })
+          .catch((error) => {
+            alert("Something went wrong, error: " + error);
+          });
+      }
+
+      var add_user = document.getElementById("create_user_btn");
+      add_user.addEventListener("click", () => {
+        if(crFname.value === "" ||
+            crLname.value === "" ||
+            crEmail.value === "" ||
+            crAffiliateOrganisation.value === "" ||
+            crNpassword.value === "" ||
+            crCpassword.value === "") {
+              alert("Fill all empty fields to continue")
+            } else{
+              if(crNpassword.value !== crCpassword.value) {
+                alert("Passwords mismatch")
+              }else {
+                AddUser();
+                console.log("Good to go");
+              }
+            }
+      })
+
+      // function ShowUsers() {
+      //   const dbref = ref(db);
+
+      //   get(child(dbref, "Users")).then((snapshot) => {
+      //     if (snapshot.exists()) {
+      //       //console.log(snapshot.val());
+      //       let moData = snapshot.val();
+      //       for(const key in moData) {
+      //         if(Email.value == moData[key].Cell && pwd.value == moData[key].Password) {
+      //           sessionStorage.setItem("state","loggedin"); 
+      //           loggedin_panel.classList.remove("noneDisplay");
+      //           createNewUserPanel.classList.add("noneDisplay");
+      //           login_panel.classList.add("noneDisplay");
+      //         break;
+      //         }
+      //         // else{
+      //         //   alert("Wrong username or password! Try again");
+      //         //   break;
+      //         // }
+      //       }
+      //     }
+      //   });
+      // }
+
+      var username_log = document.getElementById("username");
+      var password_log = document.getElementById("password")
+
+      function ShowUsers() {
+        const dbref = ref(db);
+
+        get(child(dbref, "Users")).then((snapshot) => {
+          if (snapshot.exists()) {
+            console.log(snapshot.val());
+            let moData = snapshot.val();
+            for(const key in moData) {
+              if(username_log.value == moData[key].Cell && password_log.value == moData[key].Password) {
+                // sessionStorage.setItem("state","loggedin"); 
+                // loggedin_panel.classList.remove("noneDisplay");
+                // createNewUserPanel.classList.add("noneDisplay");
+                // login_panel.classList.add("noneDisplay");
+                if(moData[key].Type == "admin"){
+                  sessionStorage.setItem("current","adminIN");
+                  window.location.reload(false);
+                }else{
+                  sessionStorage.setItem("current","regularIN");
+                  window.location.reload(false);
+                }
+              break;
+              }
+              // else{
+              //   alert("Wrong username or password! Try again");
+              //   break;
+              // }
+            }
+            
+          }
+        });
+      }
+
+      var btn_login = document.getElementById("btn_login").addEventListener("click", () => {
+        // sessionStorage.setItem("current", "regularIN");
+        // window.location.reload(false);
+        ShowUsers()
+      })
+
+      var to_login_from_admin = document.getElementById("to_login_from_admin");
+      to_login_from_admin.addEventListener("click", () => {
+        sessionStorage.setItem("current", "logIN");
+        window.location.reload(false);
+      })
+      
+
+      window.onload = function() {
+        ShowData();
+        console.log(sessionStorage.getItem("current"));
+
+        //login_panel.classList.add("do_not_display");
+        create_user_panel.classList.add("do_not_display");
+        regular_user_panel.classList.add("do_not_display");
+        admin_panel.classList.add("do_not_display");
+        if(sessionStorage.getItem("current") == "logIN") {
+          login_panel.classList.remove("do_not_display");
+          create_user_panel.classList.add("do_not_display");
+          regular_user_panel.classList.add("do_not_display");
+          admin_panel.classList.add("do_not_display");
+        } else if(sessionStorage.getItem("current") == "createUSER"){
+          login_panel.classList.add("do_not_display");
+          create_user_panel.classList.remove("do_not_display");
+          regular_user_panel.classList.add("do_not_display");
+          admin_panel.classList.add("do_not_display");
+        } else if(sessionStorage.getItem("current") == "regularIN"){
+          login_panel.classList.add("do_not_display");
+          create_user_panel.classList.add("do_not_display");
+          regular_user_panel.classList.remove("do_not_display");
+          admin_panel.classList.add("do_not_display");
+        } else if(sessionStorage.getItem("current") == "adminIN"){
+          login_panel.classList.add("do_not_display");
+          create_user_panel.classList.add("do_not_display");
+          regular_user_panel.classList.add("do_not_display");
+          admin_panel.classList.remove("do_not_display");
+        }
+      }
+        
+
+
+
+  </script>
+<!-- <script type="text/javascript" src="./script.js"></script> -->
+
+</body>
+<body style="background-color:grey ;">
+</html>
